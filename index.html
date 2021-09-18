@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -10,14 +11,15 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="js/highlight.pack.js"></script>
-  <script>hljs.highlightAll();</script>
+  <script>
+    hljs.highlightAll();
+  </script>
 
 
   <title>Geomicrobiology Lab - Useful Resources</title>
 </head>
+
 <body class="bg-primary">
-
-
   <br>
   <main class="container">
     <div class="bs-docs-section">
@@ -32,143 +34,83 @@
               <a href="mailto:gary.schudel@uqat.ca" class="card-link"><span class="material-icons">email</span></a>
               <a href="https://www.researchgate.net/profile/Gary-Schudel" target="_blank" class="card-link"><span class="material-icons">home</span></a>
               <br>
-              <p class="card-text">The following is a list of useful resources, broken down by category, that I have developed with the help of colleagues. If there is something that you would like to see added to the list, please get in touch with me by sending me an email or direct message on discord. You can also use the handy online <a href="#" onclick="return false;" id="align_file" data-container="body" data-bs-toggle="popover" data-bs-placement="bottom" title="Submit a comment:"
-                data-bs-content="">form</a>.</p>
-              </div>
-              <div class="card-footer text-muted">
-                Last update: September 18, 2021 15:03 GMT-6
-              </div>
+              <p class="card-text">The following is a list of useful resources, broken down by category, that I have developed with the help of colleagues. If there is something that you would like to see added to the list, please get in touch with
+                me by sending me an email or direct message on discord. You can also use the handy online <a href="#" onclick="return false;" id="comment_form" data-container="body" data-bs-toggle="popover" data-bs-placement="bottom"
+                  title="Submit a comment:" data-bs-content="Submit a comment">form</a>.</p>
             </div>
-          </div>
-
-          <div class="col-6 flex-column">
-            <div class="card mb-3">
-              <h3 class="card-header">Categories:</h5>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                    Geochemistry
-                    <span class="badge bg-primary rounded-pill">14</span>
-                  </li>
-                  <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                    Microbiology
-                    <span class="badge bg-primary rounded-pill">2</span>
-                  </li>
-                  <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                    First Nations
-                    <span class="badge bg-primary rounded-pill">1</span>
-                  </li>
-                  <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                    Software
-                    <span class="badge bg-primary rounded-pill">1</span>
-                  </li>
-                  <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                    Python
-                    <span class="badge bg-primary rounded-pill">1</span>
-                  </li>
-                  <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                    mothur
-                    <span class="badge bg-primary rounded-pill">1</span>
-                  </li>
-                  <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                    Scholarships, bursaries, and other funding opportunities
-                    <span class="badge bg-primary rounded-pill">1</span>
-                  </li>
-                  <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                    Text books
-                    <span class="badge bg-primary rounded-pill">1</span>
-                  </li>
-                  <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                    Free courses
-                    <span class="badge bg-primary rounded-pill">1</span>
-                  </li>
-                  <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                    Mining: Policy, governance, regulations
-                    <span class="badge bg-primary rounded-pill">1</span>
-                  </li>
-                  <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                    Mining: Technical
-                    <span class="badge bg-primary rounded-pill">1</span>
-                  </li>
-                  <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                    Teaching
-                    <span class="badge bg-primary rounded-pill">1</span>
-                  </li>
-                  <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                    Writing
-                    <span class="badge bg-primary rounded-pill">1</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="bs-docs-section">
-          <div class="row">
-            <div class="p-3 bg-body rounded shadow-sm">
-              <h4 class="border-bottom pb-2 mb-0">How do you create a custom SILVA reference with primers?</h4>
-              <div class="d-flex pt-3 text-justify">
-                <img class="me-3" src="assets/info-square.svg" alt="" width="32" height="32">
-                <p class="pb-3 mb-0 small lh-sm border-bottom">
-                  The <a href="https://www.arb-silva.de/" target="_blank">SILVA database</a> is a "comprehensive resource
-                  for aligned ribosomal RNA sequence data". The database is quality controlled and updated regularly with
-                  small subunit
-                  (16S/18S, SSU) and large subunit (23S/28S, LSU) rRNA sequences for Bacteria, Archaea, and Eukarya. SILVA
-                  database files
-                  can be downloaded directly on the web using their
-                  "<a href="https://www.arb-silva.de/treeviewer" target="_blank">Tree Viewer</a>" web application or the
-                  <a href="http://www.arb-home.de/" target="_blank">"ARB"</a> software package. However, modifications are
-                  necessary
-                  to ensure that SILVA files work correctly with mothur. Documentation for the creation of
-                  mothur-compatible SILVA reference
-                  files can be found online (see here for <a
-                  href="https://mothur.org/blog/2021/SILVA-v138_1-reference-files/" target="_blank">v138.1</a>).
-                  <br><br>
-                  <b style="color:#6f42c1;">Warning.</b> There are three main databases available for aligning your
-                  sequences:
-                  SILVA, <a href="https://greengenes.secondgenome.com/" target="_blank">Greengenes</a>,
-                  and <a href="https://rdp.cme.msu.edu/" target="_blank">RDP</a>. Dr. Schloss's group recommends sticking
-                  with the SILVA
-                  database as the Greengenes database is no longer being maintained and both Greengenes and RDP provide
-                  inferior alignments.
-                  However, you can use any database to classify your sequences (<code>classify.seqs</code>). Dr. Schloss
-                  <a href="https://forum.mothur.org/t/using-silva-as-reference-database-in-miseq-sop/20775/5"
-                  target="_blank">notes</a> that
-                  SILVA contains more information on as yet uncultured taxa, while the RDP databased is based on
-                  <a href="https://doi.org/10.1002/9781118960608" target="_blank">Bergey's Manual of Systematics of Archaea and Bacteria</a>.
-                  <br><br>
-
-                  A <a href="https://mothur.org/wiki/miseq_sop/" target="_blank">MiSeq SOP</a> is available on the mothur
-                  website; information is also available on the procedures used to prepare and sequence 16S rRNA gene
-                  libraries
-                  (<a href="https://github.com/SchlossLab/MiSeq_WetLab_SOP/blob/master/MiSeq_WetLab_SOP.md"
-                  target="_blank">WetLab SOP</a>).
-                  The MiSeq SOP outlines a procedure for processing 16S rRNA gene sequences generated using Illumina's MiSeq
-                  platform with paired-end reads
-                  <a href="#" onclick="return false;" id="miseq_sop" data-container="body"
-                  data-bs-toggle="popover"
-                  data-bs-placement="right"
-                  title="MiSeq SOP citation:"
-                  data-bs-content="Kozich JJ, Westcott SL, Baxter NT, Highlander SK, Schloss PD. (2013):
-                  Development of a dual-index sequencing strategy and curation pipeline for analyzing amplicon sequence data
-                  on the MiSeq Illumina sequencing platform. Applied and Environmental Microbiology. 79(17):5112-20.">
-                  (citation information)
-                </a>.
-                The MiSeq SOP uses v132 of the SILVA database and only examines the V4 region of the 16S SSU. If you want to use
-                a more updated version of the database, or include other regions of the 16S rRNA gene, you will need to create a custom SILVA alignment.
-                In order to create a custom SILVA alignment you will need to find the <b style="color:#6f42c1;">
-                  start </b> and <b style="color:#6f42c1;"> end </b> positions of your primers. The following outlines the steps to
-                  find and apply these positions.
-                </p>
-              </div>
+            <div class="card-footer text-muted">
+              Last update: September 18, 2021 15:03 GMT-6
             </div>
           </div>
         </div>
 
+        <div class="col-6 flex-column">
+          <h3 class="card-header">Categories:</h5>
+            <ul class="nav nav-pills">
+              <li class="nav-item">
+                Geochemistry <span class="badge bg-primary rounded-pill">14</span>
+                <a class="nav-link active" href="#">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <div class="dropdown-menu" style="">
+                  <a class="dropdown-item" href="#">Geochemistry <span class="badge bg-primary rounded-pill">2</span></a>
+                  <a class="dropdown-item" href="#">Microbiology <span class="badge bg-primary rounded-pill">2</span></a>
+                  <a class="dropdown-item" href="#">First Nations <span class="badge bg-primary rounded-pill">2</span></a>
+                </div>
+              </li>
+          </div>
 
-      </div>
+      <!-- <div class="col-6 flex-column">
+          <div class="card mb-3">
+            <h3 class="card-header">Categories:</h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                  Geochemistry <span class="badge bg-primary rounded-pill">14</span>
+                </li>
+                <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                  Microbiology <span class="badge bg-primary rounded-pill">2</span>
+                </li>
+                <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                  First Nations <span class="badge bg-primary rounded-pill">1</span>
+                </li>
+                <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                  Software <span class="badge bg-primary rounded-pill">1</span>
+                </li>
+                <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                  Python <span class="badge bg-primary rounded-pill">1</span>
+                </li>
+                <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                  mothur <span class="badge bg-primary rounded-pill">1</span>
+                </li>
+                <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                  Scholarships, bursaries, and other funding opportunities <span class="badge bg-primary rounded-pill">1</span>
+                </li>
+                <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                  Text books <span class="badge bg-primary rounded-pill">1</span>
+                </li>
+                <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                  Free courses <span class="badge bg-primary rounded-pill">1</span>
+                </li>
+                <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                  Mining: Policy, governance, regulations <span class="badge bg-primary rounded-pill">1</span>
+                </li>
+                <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                  Mining: Technical <span class="badge bg-primary rounded-pill">1</span>
+                </li>
+                <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                  Teaching <span class="badge bg-primary rounded-pill">1</span>
+                </li>
+                <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                  Writing <span class="badge bg-primary rounded-pill">1</span>
+                </li>
+              </ul>
+          </div>
+        </div> -->
+
     </div>
+    </div>
+    <!-- section 0 end -->
 
 
   </main>
@@ -176,27 +118,26 @@
 
   <!-- Optional Bootstrap JavaScript -->
 
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
-  integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
-  crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
   <script src="js/bootstrap.js"></script>
-  <script>var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-  var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-    return new bootstrap.Popover(popoverTriggerEl)
-  })
-  var popover = new bootstrap.Popover(document.querySelector('.example-popover'), {
-    container: 'body'
-  })
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function(popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+    var popover = new bootstrap.Popover(document.querySelector('.example-popover'), {
+      container: 'body'
+    })
 
-  $("[data-bs-toggle=popover]").popover({
-    html: true,
-    content: function () {
-      return $('#popover-content').html();
-    }
-  });
-
-</script>
+    $("[data-bs-toggle=popover]").popover({
+      html: true,
+      content: function() {
+        return $('#popover-content').html();
+      }
+    });
+  </script>
 
 
 </body>
+
 </html>
