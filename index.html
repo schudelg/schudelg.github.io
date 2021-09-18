@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles/atom-one-dark-reasonable.css">
+    <script src="js/highlight.pack.js"></script>
+    <script>hljs.highlightAll();</script>
+
+
+    <title>Creating custom SILVA alignments</title>
+</head>
+<body class="bg-light">
+
+<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav> -->
+
+<br>
+<main class="container">
+
+    <div class="row">
+        <!-- Column -->
+        <div class="col-6 flex-column">
+            <div class="my-3 p-4 bg-purple text-light rounded shadow-sm h-75">
+                <h3>Creating custom SILVA alignments:</h3>
+                <p>A guide to modifying the SILVA reference library for specific 16S rRNA
+                    primers.</p>
+                <p>Last update: April 16, 2021 17:16 GMT-6</p>
+                <br>
+            </div>
+        </div>
+        <!-- Column -->
+        <div class="col-6 flex-column">
+            <div class="my-3 p-4 bg-body rounded shadow-sm h-75">
+                <h3>Gary Schudel</h3>
+                <p><i>l'Universit&eacute; du Qu&eacute;bec en Abitibi-T&eacute;miscamingue</i></p>
+                <a href="mailto:gary.schudel@uqat.ca" class="btn btn-primary">E-mail</a>
+                <a href="https://researchgate.net/profile/Gary_Schudel" target="_blank"
+                   class="btn btn-primary">ResearchGate</a>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="p-3 bg-body rounded shadow-sm">
+        <h4 class="border-bottom pb-2 mb-0">How do you create a custom SILVA reference with primers?</h4>
+        <div class="d-flex pt-3 text-justify">
+            <img class="me-3" src="assets/info-square.svg" alt="" width="32" height="32">
+            <p class="pb-3 mb-0 small lh-sm border-bottom">
+                The <a href="https://www.arb-silva.de/" target="_blank">SILVA database</a> is a "comprehensive resource
+                for aligned ribosomal RNA sequence data". The database is quality controlled and updated regularly with
+                small subunit
+                (16S/18S, SSU) and large subunit (23S/28S, LSU) rRNA sequences for Bacteria, Archaea, and Eukarya. SILVA
+                database files
+                can be downloaded directly on the web using their
+                "<a href="https://www.arb-silva.de/treeviewer" target="_blank">Tree Viewer</a>" web application or the
+                <a href="http://www.arb-home.de/" target="_blank">"ARB"</a> software package. However, modifications are
+                necessary
+                to ensure that SILVA files work correctly with mothur. Documentation for the creation of
+                mothur-compatible SILVA reference
+                files can be found online (see here for <a
+                    href="https://mothur.org/blog/2021/SILVA-v138_1-reference-files/" target="_blank">v138.1</a>).
+                <br><br>
+                <b style="color:#6f42c1;">Warning.</b> There are three main databases available for aligning your
+                sequences:
+                SILVA, <a href="https://greengenes.secondgenome.com/" target="_blank">Greengenes</a>,
+                and <a href="https://rdp.cme.msu.edu/" target="_blank">RDP</a>. Dr. Schloss's group recommends sticking
+                with the SILVA
+                database as the Greengenes database is no longer being maintained and both Greengenes and RDP provide
+                inferior alignments.
+                However, you can use any database to classify your sequences (<code>classify.seqs</code>). Dr. Schloss
+                <a href="https://forum.mothur.org/t/using-silva-as-reference-database-in-miseq-sop/20775/5"
+                   target="_blank">notes</a> that
+                SILVA contains more information on as yet uncultured taxa, while the RDP databased is based on
+                <a href="https://doi.org/10.1002/9781118960608" target="_blank">Bergey's Manual of Systematics of Archaea and Bacteria</a>.
+                <br><br>
+
+                A <a href="https://mothur.org/wiki/miseq_sop/" target="_blank">MiSeq SOP</a> is available on the mothur
+                website; information is also available on the procedures used to prepare and sequence 16S rRNA gene
+                libraries
+                (<a href="https://github.com/SchlossLab/MiSeq_WetLab_SOP/blob/master/MiSeq_WetLab_SOP.md"
+                    target="_blank">WetLab SOP</a>).
+                The MiSeq SOP outlines a procedure for processing 16S rRNA gene sequences generated using Illumina's MiSeq
+                platform with paired-end reads
+                <a href="#" onclick="return false;" id="miseq_sop" data-container="body"
+                   data-bs-toggle="popover"
+                   data-bs-placement="right"
+                   title="MiSeq SOP citation:"
+                   data-bs-content="Kozich JJ, Westcott SL, Baxter NT, Highlander SK, Schloss PD. (2013):
+                   Development of a dual-index sequencing strategy and curation pipeline for analyzing amplicon sequence data
+                   on the MiSeq Illumina sequencing platform. Applied and Environmental Microbiology. 79(17):5112-20.">
+                    (citation information)
+                </a>.
+                The MiSeq SOP uses v132 of the SILVA database and only examines the V4 region of the 16S SSU. If you want to use
+                a more updated version of the database, or include other regions of the 16S rRNA gene, you will need to create a custom SILVA alignment.
+                In order to create a custom SILVA alignment you will need to find the <b style="color:#6f42c1;">
+                start </b> and <b style="color:#6f42c1;"> end </b> positions of your primers. The following outlines the steps to
+                find and apply these positions.
+            </p>
+        </div>
+    </div>
+
+    <div class="my-3 p-3 bg-body rounded shadow-sm">
+        <h4 class="border-bottom pb-2 mb-0">Finding the start and end positions of your primers:</h4>
+        <br>
+        <div class="accordion-flush" id="accordion1">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        <img class="me-3" src="assets/cloud-arrow-down.svg" alt="" width="32" height="32">
+                        Gather a 16S rRNA sequence for E. coli:
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                     data-bs-parent="#accordion1">
+                    <div class="accordion-body">
+                        Download an <a href="https://www.ebi.ac.uk/ena/browser/api/fasta/A14565.1?lineLimit=1000"
+                                       target="_blank">
+                        ecoli 16S rRNA gene sequence </a> and save it as a
+                        <a href="https://mothur.org/wiki/fasta_file/" target="_blank"><i>.fasta</i></a> file. You can
+                        use a name like
+                        "ecoli.16srrna.fasta".
+                        <pre>
+                            <code class="python">
+    import requests    #Import the python module for getting web content
+    from bs4 import BeautifulSoup    #Import module for processing HTML
+    import re    #Import module for regex transformations
+
+    #Get a complete 16S rRNA sequence from the European Nucleotide Archive
+    r = requests.get("https://www.ebi.ac.uk/ena/browser/api/fasta/A14565.1?lineLimit=1000")
+    soup = str(BeautifulSoup(r.text, 'html.parser'))
+    soup = re.sub(r"&amp;gt;",r">",soup)    #Some minor text cleanup
+
+    #Write the fasta file
+    with open("./ecoli.16srrna.fasta", "w") as f:
+        f.write(soup)
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <img class="me-3" src="assets/file-earmark-text.svg" alt="" width="32" height="32">
+                        Create a file that contains your primer sequences:
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                     data-bs-parent="#accordion1">
+                    <div class="accordion-body">
+                        Mothur can intake an <a href="https://mothur.org/wiki/oligos_file/"><i>.oligos</i></a> file
+                        containing the forward and reverse sequences of your primer. An <i>.oligos</i> file must be a
+                        minimum of one line long; in this case, only the forward primer is specified. However, in most
+                        cases, you will specify two lines - the forward primer and the reverse primer. The following
+                        code creates an <i>.oligos</i> file for the specified primer pair.
+                        <pre>
+                            <code class="python">
+    #Copy and paste different primers into the forward and reverse slots in this string.
+    primers = "forward TACGGGAGGCAGCAG" + "\n" + "reverse CCAGGGTATCTAATCC"
+
+    #Create an .oligos file with your primers defined above.
+    with open("./test.oligos", "w") as oligos:
+        oligos.write(primers)
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <img class="me-3" src="assets/terminal.svg" alt="" width="32" height="32">
+                        Using the ecoli fasta and oligos files, run the pcr.seqs command:
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                     data-bs-parent="#accordion1">
+                    <div class="accordion-body">
+                        By running this command you are trimming down the original ecoli fasta file, which represents a
+                        complete 16S rRNA gene sequence, to display only the region between your chosen primers. For
+                        example,
+                        this could be the V4 region or the V3 and V4 regions.
+                        The <a href="https://mothur.org/wiki/miseq_sop/" target="_blank">MiSeq SOP</a> provides
+                        coordinates for the V4 region.
+                        In your SOP, Pat Schloss recommends sequencing the V4 region with
+                        <a href="#" onclick="return false;" id="paired_reads" data-container="body"
+                           data-bs-toggle="popover"
+                           data-bs-placement="right"
+                           title="Paired-end sequencing:"
+                           data-bs-content="Paired-end sequencing means that DNA fragments in a library are sequenced from both ends.
+The forward and reverse reads are aligned as 'read pairs'. This process produces twice the number of reads for the same amount of time/effort
+in terms of library preparation. Analysis of read-pair spacing also enables the removal of PCR duplicates, which are commonly introduced as a result of
+PCR amplification during library preparation.">
+                            paired 250 nt reads.
+                        </a>
+                        <pre>
+                            <code class="python">
+    from mothur_py import *    #Imports the mothur_py module that allows you to run mothur in Python
+    import re    #Imports the re module to perform regex searches
+    def clear_current():
+        '''A function that clears the contents of the current_files.summary file.'''
+        open('current_files.summary', "w").close()
+
+    clear_current()
+    m = Mothur()    #Setup a mothur environment
+    m.pcr.seqs(fasta="ecoli.16srrna.fasta", oligos="test.oligos")
+    with open("current_files.summary", "r") as cf:
+        print("Output file: \"{}\"".format(re.search("fasta=(\S*)",cf.read()).group(1)))
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        <img class="me-3" src="assets/search.svg" alt="" width="32" height="32">
+                        Run summary.seqs on the aligned ecoli file to get the start and end position of your primers:
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                     data-bs-parent="#accordion1">
+                    <div class="accordion-body">
+                        The <a href="https://mothur.org/wiki/summary.seqs/" target="_blank">summary.seqs</a> command
+                        generates some key information about the 'ecoli.16srrna.pcr.align' file. A fasta file is the
+                        only required
+                        input parameter. Here, we convert the output of <i>summary.seqs</i> command to a <i>.csv</i>
+                        file and then
+                        gather the start and end positions of our primer.
+                        <pre>
+                            <code class="python">
+    import pandas as pd    #Import pandas for manipulating files into a csv.
+    m.summary.seqs(fasta='ecoli.16srrna.pcr.align')    #Generate summary seqs for the aligned ecoli fasta.
+    with open("current_files.summary", "r") as cf:
+        print("Output file: \"{}\"".format(re.search("summary=(\S*)",cf.read()).group(1)))
+
+    #Process the results:
+    df = pd.read_csv('ecoli.16srrna.pcr.summary', delimiter=r"\s+")
+    df.to_csv('summary.csv', sep = ",")
+    start = (df.loc[0]['start'])    #Get the start position.
+    end = (df.loc[0]['end'])    #Get the end position.
+
+    print("Start: {} & End: {}.".format(start,end))
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-3 p-3 bg-body rounded shadow-sm">
+        <br>
+        <h4 class="border-bottom pb-2 mb-0">Customizing the silva.seed_v138_1.align file:</h4>
+        <div class="accordion-flush" id="accordion-two">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOneOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOneOne" aria-expanded="false" aria-controls="collapseOneOne">
+                        <img class="me-3" src="assets/crop.svg" alt="" width="32" height="32">
+                        Use the start and end positions you determined to crop the silva.seed_v138_1.align file:
+                    </button>
+                </h2>
+                <div id="collapseOneOne" class="accordion-collapse collapse" aria-labelledby="headingOneOne"
+                     data-bs-parent="#accordion-two">
+                    <div class="accordion-body">
+                        The <a href="https://mothur.org/wiki/pcr.seqs/" target="_blank">pcr.seqs</a> command takes in
+                        a <i>.fasta</i> or
+                        <a href="#" onclick="return false;" id="align_file" data-container="body"
+                           data-bs-toggle="popover"
+                           data-bs-placement="right"
+                           title=".align files"
+                           data-bs-content=".align files are essentially the same as .fasta files...">
+                            .align file
+                        </a>
+                        and, for this step, the start and end positions of your primers (given as integers). The purpose
+                        of this step is
+                        to trim down the SILVA reference library file so that it only contains information relevant to
+                        the area you sequenced.
+                        This helps to avoid lengthy and expensive computations down the line when you want to align your
+                        samples to the
+                        reference library.
+                        <pre>
+                            <code class="python">
+    for i in tqdm (range (100), desc="Processing…", ascii=False, ncols=75):
+        m.pcr.seqs(fasta="silva.seed_v138_1.align", start=start, end=end, keepdots="FALSE")
+    print("Complete.")
+    with open("current_files.summary", "r") as cf:
+        print("Output file: \"{}\"".format(re.search("fasta=(\S*)",cf.read()).group(1)))
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+</main>
+
+
+<!-- Optional Bootstrap JavaScript -->
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+        integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+        crossorigin="anonymous"></script>
+<script src="js/bootstrap.js"></script>
+<script>var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    return new bootstrap.Popover(popoverTriggerEl)
+})
+var popover = new bootstrap.Popover(document.querySelector('.example-popover'), {
+    container: 'body'
+})
+
+$("[data-bs-toggle=popover]").popover({
+    html: true,
+    content: function () {
+        return $('#popover-content').html();
+    }
+});
+
+</script>
+
+
+</body>
+</html>
